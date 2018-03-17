@@ -2,7 +2,8 @@
 
 ### Custom ###
 .idea/
-
+.config_secret/
+.config/
 ### Django ###
 *.log
 *.pot

@@ -61,6 +61,7 @@ INSTALLED_APPS = [
 
     'storages',
     'django_extensions',
+    'users',
 ]
 
 MIDDLEWARE = [

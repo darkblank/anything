@@ -1,22 +1,25 @@
 from django.contrib.auth.base_user import BaseUserManager, AbstractBaseUser
 from django.db import models
+from rest_framework.authtoken.models import Token
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, password=None):
+    def create_user(self, email, nickname, password=None):
         if not email:
             raise ValueError('유효한 이메일을 입력해주세요')
 
         user = self.model(
             email=self.normalize_email(email),
+            nickname=nickname
         )
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, password):
+    def create_superuser(self, email, password, nickname):
         user = self.create_user(
             email,
+            nickname=nickname,
             password=password,
         )
         user.is_admin = True

@@ -37,3 +37,13 @@ class SignupSerializer(serializers.ModelSerializer):
             'token': instance.token,
         }
         return data
+
+
+class SigninSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = (
+            'pk',
+            'email',
+            'nickname',
+        )
